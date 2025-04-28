@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import HTMLFlipBook from "react-pageflip";
 import "./App.css";
 
@@ -7,23 +7,44 @@ function App() {
   const flipBook = useRef();
   const flipSound = useRef(new Audio("/flip.mp3"));
 
+  const [dimensions, setDimensions] = useState({
+    width: window.innerWidth > 600 ? 500 : window.innerWidth - 40,
+    height: window.innerHeight > 800 ? 700 : window.innerHeight - 100,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setDimensions({
+        width: window.innerWidth > 600 ? 500 : window.innerWidth - 40,
+        height: window.innerHeight > 800 ? 700 : window.innerHeight - 100,
+      });
+    }
+  
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  
+
   const pages = [
     {
       title: "Cover Page",
       content: (
         <>
+        <div className="title-page">
           <h1 className="title">GameFuel:</h1>
-          <h2 className="subtitle">
-            A Dietary Guideline for Student-Athletes at Basud National High School
-          </h2>
-          <p className="tagline">Fuel Smart. Play Hard. Recover Strong.</p>
-          <div className="authors">
-            <p>by Joshua Abel Rawat</p>
-            <p>and Girlie Villamar</p>
-          </div>
+            <h2 className="subtitle">
+              A Dietary Guideline for Student-Athletes at Basud National High School
+            </h2>
+            <p className="tagline">Fuel Smart. Play Hard. Recover Strong.</p>
+            <div className="authors">
+              <p>by Joshua Abel Rawat</p>
+              <p>and Girlie Villamar</p>
+            </div>
+        </div>
         </>
       )
     },
+    {},
     {
       title: "Table of Contents",
       content: (
@@ -56,10 +77,12 @@ function App() {
       ),
       pageNumber: 1
     },
+    {},
     {
       title: "Introduction",
       content: "Welcome to GameFuel, your complete nutrition guide designed to empower Basud National High School student-athletes. This eBook serves to provide practical, science-based nutrition advice to help you perform better, recover faster, and stay healthy. 📖"
     },
+    {},
     {
       title: "Importance of Nutrition in Athletic Performance",
       content: (
@@ -75,6 +98,7 @@ function App() {
       ),
       pageNumber: 1
     },
+    {},
     {
       title: "Chapter 3",
       content: (
@@ -97,6 +121,7 @@ function App() {
       ),
       pageNumber: 2
     },
+    {},
     {
       title: "Chapter 4: Scientifically-Backed Dietary Guidelines",
       content: (
@@ -136,6 +161,7 @@ function App() {
         </>
       )
     },
+    {},
     {
       title: "One-Month Meal Plan",
       content: (
@@ -184,6 +210,7 @@ function App() {
         </>
       )
     },
+    {},
     {
       title: "One-Month Meal Plan",
       content: (
@@ -229,6 +256,7 @@ function App() {
         </>
       )
     },
+    {},
     {
       title: "One-Month Meal Plan",
       content: (
@@ -275,6 +303,7 @@ function App() {
         </>
       )
     },
+    {},
     {
       title: "One-Month Meal Plan",
       content: (
@@ -321,6 +350,7 @@ function App() {
         </>
       )
     },
+    {},
     {
       title: "One-Month Meal Plan",
       content: (
@@ -367,6 +397,7 @@ function App() {
         </>
       )
     },
+    {},
     {
       title: "One-Month Meal Plan",
       content: (
@@ -413,6 +444,7 @@ function App() {
         </>
       )
     },
+    {},
     {
       title: "One-Month Meal Plan",
       content: (
@@ -459,6 +491,7 @@ function App() {
         </>
       )
     },
+    {},
     {
       title: "One-Month Meal Plan",
       content: (
@@ -505,6 +538,7 @@ function App() {
         </>
       )
     },
+    {},
     {
       title: "One-Month Meal Plan",
       content: (
@@ -551,6 +585,7 @@ function App() {
         </>
       )
     },
+    {},
     {
       title: "One-Month Meal Plan",
       content: (
@@ -597,9 +632,102 @@ function App() {
         </>
       )
     },
+    {},
+    {
+      title: "Hydration Strategies",
+      content: (
+      <>
+        <h2>Hydration Strategies</h2>
+        <ul>
+          <li>Drink 250–500 mL of water two hours before activity.</li>
+          <li>Sip 100–150 mL of water every 20 minutes during training.</li>
+          <li>For events longer than 60 minutes, include electrolytes (sports drinks or oral rehydration salts).</li>
+          <li>Check urine color — pale yellow indicates good hydration.</li>
+        </ul>
+      </>
+      )
+    },
+    {},
+    {
+      title: "Pre-Game and Post-Game Nutrition",
+      content: (
+      <>
+        <h2>Pre-Game and Post-Game Nutrition</h2>
+        <h5>Before Game:</h5>
+        <ul>
+          <li>3 hours before: Rice + lean meat + fruits</li>
+          <li>30 mins before: Banana + water</li>
+        </ul>
+        <h5>After Game:</h5>
+        <ul>
+          <li>Within 30 minutes: Chocolate milk, sandwich</li>
+          <li>1–2 hours after: Balanced meal (carbs + protein + vegetables)</li>
+        </ul>
+      </>
+      )
+    },
+    {},
+    {
+      title: "Common Nutrition Myths",
+      content: (
+      <>
+        <h2>Common Nutrition Myths</h2>
+        <ul>
+          <li>❌ “Skipping breakfast makes you lighter for sports.”</li>
+          <li>✅ Truth: Skipping breakfast drains energy stores and hinders performance.</li>
+          <li>❌ “More protein = more muscle.”</li>
+          <li>✅ Truth: Excess protein won’t build muscle without proper training.</li>
+        </ul>
+      </>
+      )
+    },
+    {},
+    {
+      title: "Practical Tips for Busy Student-Athletes",
+      content: (
+      <>
+        <h2>Practical Tips for Busy Student-Athletes</h2>
+        <ul>
+          <li>Pack healthy snacks: boiled eggs, trail mix, fruits.</li>
+          <li>Avoid energy drinks and sugary sodas.</li>
+          <li>Eat rainbow-colored fruits and vegetables daily.</li>
+          <li>Don’t skip meals—even on rest days.</li>
+        </ul>
+      </>
+      )
+    },
+    {},
+    {
+      title: "Final Recommendations",
+      content: (
+      <>
+        <h2>Final Recommendations</h2>
+        <ul>
+          <li>Make small, consistent changes.</li>
+          <li>Stay hydrated throughout the day.</li>
+          <li>Listen to your body.</li>
+          <li>Prioritize sleep and recovery.</li>
+          <li>Seek help from coaches, teachers, or health professionals when unsure</li>
+        </ul>
+      </>
+      )
+    },
+    {},
     {
       title: "The End",
-      content: "Thank you for reading GameFuel! 🎉"
+      content: (
+        <>
+          <h2>Thank You for Reading!</h2>
+          <br></br>
+          <h4>Download Link for PDF</h4>
+          <a href="/ebook_content.pdf"
+            download="GameFuel_Ebook.pdf"
+            target="_blank"
+            rel="noopener noreferrer">
+            Click here to download the PDF version of this eBook.
+          </a>
+        </>
+      )
     }
   ];
 
@@ -630,8 +758,8 @@ function App() {
         </div>
       ) : (
         <HTMLFlipBook
-          width={550}
-          height={733}
+          width={dimensions.width}
+          height={dimensions.height}
           size="stretch"
           minWidth={315}
           maxWidth={500}
