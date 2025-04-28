@@ -12,7 +12,7 @@
 .book-cover {
   width: 320px;
   height: 480px;
-  background: #97A7B3;
+  background-image: url('temporarycover.png');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -78,28 +78,56 @@
   text-align: center;
 }
 
+/* Table of Contents Style */
+.toc-container {
+  margin: 60px auto 0 auto;
+  max-width: 600px; 
+  padding: 0 30px; 
+
+}
+
+.toc-title {
+  text-align: center;
+  letter-spacing: 0.2em;
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-family: 'Georgia', serif;
+}
+
+.toc-separator {
+  width: 350px;
+  height: 2px;
+  background-color: #333;
+  margin: 0 auto 50px auto;
+}
+
 .toc {
-  text-align: left;
-  margin-top: 20px;
   list-style: none;
   padding: 0;
+  margin: 0;
+  font-family: 'Georgia', serif; /* Matches the font in the image */
+  font-size: 14px; /* Adjusted font size for readability */
+  line-height: 1.6; /* Improves spacing between lines */
+  text-align: left; /* Centers the text */
 }
 
 .toc li {
-  margin-bottom: 8px;
+  margin-bottom: 15px; /* Adds spacing between items */
 }
 
 .toc-button {
   background: none;
   border: none;
-  color: #2b6cb0;
-  font-size: 14px;
+  color: #333; /* Matches the text color in the image */
+  font-size: 14px; /* Matches the font size */
   text-align: left;
   cursor: pointer;
+  width: 100%;
+  font-family: 'Georgia', serif; /* Matches the font family */
 }
 
 .toc-button:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* Adds a hover effect */
 }
 
 .close-book-button {
@@ -183,8 +211,8 @@
   }
 
   .book-cover {
-    width: 100%;
-    height: auto;
+    width: 80%;
+    height: 400px;
     padding: 16px;
   }
 
@@ -217,46 +245,140 @@
 }
 
 @media (max-width: 400px) {
-  .book-cover {
-    width: 80%;
-    height: 400px;
-    padding: 12px;
-  }
-
-  .cover-content {
-    padding: 8px;
-  }
-
-  .title {
-    font-size: 1.2rem;
-  }
-
-  .subtitle, .tagline {
-    font-size: 0.8rem;
+  .flip-book {
+    width: 100px;
+    max-width: 250px;
+    height: 100px; /* or set height to maintain aspect ratio */
   }
 
   .page {
-    width: 100px;
-    padding: 12px;
+    width: 100%;
+    min-width: auto;
+    padding: 10px;
+    margin-right: 5px;
   }
 
   .page-number {
-    font-size: 5px;
+    font-size: 10px;
   }
 
   .app {
     font-size: 10.5px;
     width: 100%;
-  }
-
-  .toc-button {
-    font-size: 12px;
-  }
-
-  .close-book-button {
-    top: 10px;
-    right: 10px;
-    font-size: 12px;
-    padding: 6px 12px;
+    margin-right: 0; /* remove large margin */
   }
 }
+
+.introduction-page {
+  display: flex;
+  flex-direction: column; /* Ensures vertical stacking of elements */
+  justify-content: center; /* Centers content vertically */
+  align-items: center; /* Centers content horizontally */
+  height: 100vh; /* Full viewport height */
+  padding: 0 20px; /* Adds left and right margins */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.introduction-title {
+  text-align: center;
+  letter-spacing: 0.2em; /* Matches the letter spacing of .toc-title */
+  font-size: 22px; /* Matches the font size of .toc-title */
+  margin-bottom: 15px; /* Matches the margin of .toc-title */
+  margin-top: -250px; /* Moves the title upward */
+  font-family: 'Georgia', serif; /* Matches the font family of .toc-title */
+  font-weight: bold; /* Ensures the title remains bold */
+}
+
+.introduction-content {
+  border: 2px solid #333; /* Adds a border to create the box */
+  padding: 40px 20px; /* Increases vertical padding to make the box taller */
+  max-width: 600px; /* Limits the width of the box */
+  min-height: 200px; /* Ensures the box has a minimum height */
+  background-color: #f9f9f9; /* Adds a light background color */
+  border-radius: 10px; /* Rounds the corners of the box */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+
+.introduction-content p {
+  font-size: 18px; /* Adjusted font size for the paragraph */
+  line-height: 1.6; /* Improves readability */
+}
+
+.nutrition-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content vertically */
+  align-items: center; /* Centers content horizontally */
+  height: 100vh; /* Full viewport height */
+  padding: 20px; /* Adds padding for spacing */
+  box-sizing: border-box; /* Ensures padding is included in width/height */
+  text-align: center; /* Centers the text */
+  max-width: 800px; /* Limits the width of the content */
+  margin: 0 auto; /* Centers the content with equal left and right margins */
+}
+
+.nutrition-page img {
+  max-width: 90%; /* Ensures the image is responsive and slightly smaller */
+  height: auto;
+  margin-bottom: 20px; /* Adds spacing below the image */
+  margin-left: -10px; /* Adjusts the image slightly to the left */
+  align-self: center; /* Centers the image horizontally */
+}
+
+.nutrition-page h2 {
+  font-family: 'Georgia', serif; /* Matches the font style */
+  font-size: 24px; /* Larger font size for headings */
+  font-weight: bold;
+  margin-bottom: 15px; /* Adds spacing below the heading */
+  text-align: center; /* Centers the heading */
+  margin-left: -20px;
+}
+
+.nutrition-page ul {
+  list-style: disc inside; /* Proper bullet formatting */
+  max-width: 600px; /* Limits the width of the list */
+  line-height: 1.8; /* Improves readability */
+  font-family: 'Georgia', serif; /* Matches the font style */
+  font-size: 16px; /* Adjusted font size for readability */
+  margin-left: -30px;
+  margin-right: 50px;
+}
+
+.nutrition-page ul li {
+  text-indent: -20px; /* Indents the second line */
+  padding-left: 20px; /* Adds space between the bullet and text */
+}
+
+.nutrition-needs-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Aligns content to the top */
+  align-items: center; /* Centers content horizontally */
+  height: 100vh; /* Full viewport height */
+  padding: 40px 20px; /* Adds padding for spacing */
+  box-sizing: border-box; /* Ensures padding is included in width/height */
+  text-align: left; /* Aligns text to the left */
+  max-width: 800px; /* Limits the width of the content */
+  margin: 0 auto; /* Centers the content with equal left and right margins */
+  
+}
+
+.nutrition-needs-page h2 {
+  font-family: 'Georgia', serif; /* Matches the font style */
+  font-size: 24px; /* Larger font size for headings */
+  font-weight: bold;
+  margin-bottom: 10px; /* Adds spacing below the heading */
+  margin-top: 50px; /* Moves the heading upward */
+  text-align: center; /* Centers the heading */
+}
+
+.nutrition-needs-page ul {
+  list-style: disc inside; /* Proper bullet formatting */
+  max-width: 600px; /* Limits the width of the list */
+  line-height: 1.8; /* Improves readability */
+  font-family: 'Georgia', serif; /* Matches the font style */
+  font-size: 16px; /* Adjusted font size for readability */
+  margin: 20px auto; /* Centers the list with equal margins */
+}
+

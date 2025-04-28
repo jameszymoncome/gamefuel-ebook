@@ -48,8 +48,9 @@ function App() {
     {
       title: "Table of Contents",
       content: (
-        <>
-          <h2>Table of Contents</h2>
+        <div className="toc-container">
+          <h2 className="toc-title">TABLE OF CONTENTS</h2>
+          <div className="toc-separator"></div>
           <ol className="toc">
             {[
               "1. Introduction",
@@ -73,20 +74,53 @@ function App() {
               </li>
             ))}
           </ol>
-        </>
-      ),
-      pageNumber: 1
+        </div>
+      ),     
     },
     {},
     {
       title: "Introduction",
-      content: "Welcome to GameFuel, your complete nutrition guide designed to empower Basud National High School student-athletes. This eBook serves to provide practical, science-based nutrition advice to help you perform better, recover faster, and stay healthy. 📖"
+      content: (
+        <div className="introduction-page">
+          <h2 className="introduction-title">Introduction</h2> {/* Placed above the box */}
+          <div className="introduction-content">
+            <p>
+              Welcome to GameFuel, your complete nutrition guide designed to empower
+              Basud National High School student-athletes. This eBook serves to
+              provide practical, science-based nutrition advice to help you perform
+              better, recover faster, and stay healthy. 📖
+            </p>
+          </div>
+        </div>
+      ),
     },
     {},
     {
       title: "Importance of Nutrition in Athletic Performance",
       content: (
-        <>
+        <div 
+          className="nutrition-page" 
+          style={{ 
+            margin: "0 auto", // Centers the content horizontally
+            width: "90%", // Ensures equal spacing on both sides
+            textAlign: "left", 
+            display: "flex", 
+            flexDirection: "column", 
+            alignItems: "flex-start" 
+          }}
+        >
+          <img 
+            src="/images/3.jpg" 
+            alt="Nutrition and Athletic Performance" 
+            style={{ 
+              width: "100%", 
+              height: "auto", 
+              marginBottom: "10px", 
+              marginTop: "-220px", 
+              marginLeft: "3px",
+              alignSelf: "flex-start" 
+            }}
+          />
           <h2>Importance of Nutrition in Athletic Performance</h2>
           <ul>
             <li>Nutrition fuels energy systems during training and games.</li>
@@ -94,32 +128,38 @@ function App() {
             <li>Prevents injury and boosts immunity.</li>
             <li>Improves focus and academic performance.</li>
           </ul>
-        </>
+        </div>
       ),
-      pageNumber: 1
+      pageNumber: 2
     },
     {},
     {
-      title: "Chapter 3",
+      title: "Nutritional Needs of Student-Athletes",
       content: (
-      <>
-        <h2>Nutritional Needs of Student-Athletes</h2>
-        <ul>
-          <li>Macronutrients:</li>
+        <div className="nutrition-needs-page">
+          <h2>Nutritional Needs of Student-Athletes</h2>
           <ul>
-            <li>Carbohydrates (55–65%) – Primary energy source.</li>
-            <li>Protein (12–15%) – Muscle repair and growth.</li>
-            <li>Fats (20–30%) – Supports hormone production and recovery.</li>
+            <li>
+              <strong>Macronutrients:</strong>
+              <ul>
+                <li>Carbohydrates (55–65%) – Primary energy source.</li>
+                <li>Protein (12–15%) – Muscle repair and growth.</li>
+                <li>Fats (20–30%) – Supports hormone production and recovery.</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Micronutrients:</strong>
+              <ul>
+                <li>Iron, calcium, vitamin D, B-complex vitamins.</li>
+              </ul>
+            </li>
+            <li>
+              Calories: Varies by age, sex, and sport. Ranges from 2,000–3,500 kcal/day.
+            </li>
           </ul>
-          <li>Micronutrients:</li>
-          <ul>
-            <li>Iron, calcium, vitamin D, B-complex vitamins.</li>
-          </ul>
-          <li>Calories: Varies by age, sex, and sport. Ranges from 2,000–3,500 kcal/day.</li>
-        </ul>
-      </>
+        </div>
       ),
-      pageNumber: 2
+      pageNumber: 3
     },
     {},
     {
@@ -159,7 +199,8 @@ function App() {
             </tbody>
           </table>
         </>
-      )
+      ),
+      pageNumber: 4
     },
     {},
     {
@@ -208,7 +249,8 @@ function App() {
           </section>
 
         </>
-      )
+      ),
+      pageNumber: 5
     },
     {},
     {
@@ -254,7 +296,8 @@ function App() {
           </section>
 
         </>
-      )
+      ),
+      pageNumber: 6
     },
     {},
     {
@@ -301,7 +344,8 @@ function App() {
           </section>
 
         </>
-      )
+      ),
+      pageNumber: 7
     },
     {},
     {
@@ -348,7 +392,8 @@ function App() {
           </section>
 
         </>
-      )
+      ),
+      pageNumber: 8
     },
     {},
     {
@@ -395,7 +440,8 @@ function App() {
           </section>
 
         </>
-      )
+      ),
+      pageNumber: 9
     },
     {},
     {
@@ -442,7 +488,8 @@ function App() {
           </section>
 
         </>
-      )
+      ),
+      pageNumber: 10
     },
     {},
     {
@@ -489,7 +536,8 @@ function App() {
           </section>
 
         </>
-      )
+      ),
+      pageNumber: 11
     },
     {},
     {
@@ -536,7 +584,8 @@ function App() {
           </section>
 
         </>
-      )
+      ),
+      pageNumber: 12
     },
     {},
     {
@@ -583,7 +632,8 @@ function App() {
           </section>
 
         </>
-      )
+      ),
+      pageNumber: 13
     },
     {},
     {
@@ -630,7 +680,8 @@ function App() {
           </section>
 
         </>
-      )
+      ),
+      pageNumber: 14
     },
     {},
     {
@@ -645,7 +696,8 @@ function App() {
           <li>Check urine color — pale yellow indicates good hydration.</li>
         </ul>
       </>
-      )
+      ),
+      pageNumber: 15
     },
     {},
     {
@@ -664,7 +716,8 @@ function App() {
           <li>1–2 hours after: Balanced meal (carbs + protein + vegetables)</li>
         </ul>
       </>
-      )
+      ),
+      pageNumber: 16
     },
     {},
     {
@@ -679,7 +732,8 @@ function App() {
           <li>✅ Truth: Excess protein won’t build muscle without proper training.</li>
         </ul>
       </>
-      )
+      ),
+      pageNumber: 17
     },
     {},
     {
@@ -694,7 +748,8 @@ function App() {
           <li>Don’t skip meals—even on rest days.</li>
         </ul>
       </>
-      )
+      ),
+      pageNumber: 18
     },
     {},
     {
@@ -710,7 +765,8 @@ function App() {
           <li>Seek help from coaches, teachers, or health professionals when unsure</li>
         </ul>
       </>
-      )
+      ),
+      pageNumber: 19
     },
     {},
     {
@@ -727,7 +783,8 @@ function App() {
             Click here to download the PDF version of this eBook.
           </a>
         </>
-      )
+      ),
+      pageNumber: 20
     }
   ];
 
@@ -750,10 +807,6 @@ function App() {
               A Dietary Guideline for Student-Athletes at Basud National High School
             </h2>
             <p className="tagline">Fuel Smart. Play Hard. Recover Strong.</p>
-            <div className="authors">
-              <p>by Joshua Abel Rawat</p>
-              <p>and Girlie Villamar</p>
-            </div>
           </div>
         </div>
       ) : (
